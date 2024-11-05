@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ------------------- ヘッダー -------------------  */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0088ff;
+    color: white;
+    padding: 10px 20px;
+}
+
+.app-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 200px;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.search-bar .icon {
+    font-size: 16px;
+    color: #333;
+}
+
+.user-icon {
+    font-size: 24px;
+    color: white;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #e0e0e0;
+    padding: 10px 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0 15px;
+}
+
+/* ------------------- フッター -------------------  */
+.footer {   
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-right: 20px;
+    text-align: left;
+}
+
+.footer-community-count {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
+}
+
+.footer-community-count p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer-section h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    margin: 0;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* ------------------- コンテンツ -------------------  */
+.content {
+    margin: 30px;
+}
