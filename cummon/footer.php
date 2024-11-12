@@ -1,4 +1,4 @@
-<div class="footer container">
+<div class="footer">
     <!-- アプリ名 -->
     <h1>アプリ名</h1>
     

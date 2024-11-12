@@ -1,0 +1,303 @@
+/* チャットエリア */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    max-width: 1200px;
+    margin: 130px auto 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7;
+}
+
+.chat-header {
+    background-color: #00b900;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chat-body {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: 800px;
+    background-color: #f7f7f7;
+}
+
+.message {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.message.sent {
+    justify-content: flex-end;
+}
+
+.message.received {
+    justify-content: flex-start;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: #ddd;
+}
+
+.content_message {
+    max-width: 50%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    position: relative;
+    background-color: #e0f7e0;
+    color: #333;
+}
+
+/* 削除ボタンのスタイル */
+.delete-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    float: right;
+}
+
+.delete-button:hover {
+    background-color: #e60000;
+}
+
+.delete-button:active {
+    background-color: #cc0000;
+}
+
+
+.message.sent .content_message {
+    background-color: #dcf8c6;
+    border-radius: 15px 15px 0 15px;
+}
+
+.message.received .content_message {
+    background-color: #fff;
+    border-radius: 15px 15px 15px 0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.content_message strong {
+    font-size: 12px;
+    color: #555;
+}
+
+
+.post-photo {
+    display: block;
+    max-width: 50%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.timestamp {
+    font-size: 10px;
+    color: #888;
+    margin-top: 5px;
+    display: block;
+    text-align: right;
+}
+
+.no-posts-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background-color: #0088ff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 200px 20px;
+    text-align: center;
+}
+
+/* チャットフッター */
+.chat-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    gap: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-footer form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* フォームの横幅を100%に拡大 */
+    gap: 10px;
+}
+
+.chat-footer textarea {
+    flex-grow: 1;
+    /* 横幅を広げる */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: none;
+    transition: border-color 0.3s ease;
+    min-height: 40px;
+}
+
+.chat-footer textarea:focus {
+    border-color: #00b900;
+}
+
+.chat-footer button {
+    background-color: #00b900;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    /* ボタンの幅を調整 */
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+    /* 横幅の圧縮を防止 */
+}
+
+.chat-footer button:hover {
+    background-color: #009d00;
+    transform: translateY(-2px);
+}
+
+.chat-footer button:active {
+    transform: translateY(0);
+}
+
+/* プレビュー画像とキャンセルボタンのスタイル */
+.round_btn {
+    display: none;
+    /* 初期状態は非表示 */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #333;
+    cursor: pointer;
+}
+
+.round_btn::before,
+.round_btn::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 21px;
+    background: #fff;
+}
+
+.round_btn::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.round_btn::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+.image-preview-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+.image-preview {
+    display: none;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+
+
+/* ファイル入力のカスタマイズ */
+.file-input-label {
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+    /* 横幅の圧縮を防止 */
+}
+
+.file-input-label:hover {
+    background-color: #e0e0e0;
+}
+
+.file-input-label input[type="file"] {
+    display: none;
+}
+
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .chat-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .chat-body {
+        max-height: 400px;
+        padding: 10px;
+    }
+
+    .chat-footer {
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .chat-footer textarea {
+        font-size: 12px;
+    }
+
+    .chat-footer button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}

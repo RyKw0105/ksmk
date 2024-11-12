@@ -1,0 +1,75 @@
+<------ CREATE文 ------>
+CREATE TABLE users (
+    user_id INT PRIMARY KEY,
+    user_name VARCHAR(50),
+    password VARCHAR(255),
+    profile_photo VARCHAR(255),
+    twitter_url VARCHAR(255),
+    created_date DATETIME,
+    updated_date DATETIME
+);
+
+CREATE TABLE seasons (
+    season_id INT PRIMARY KEY,
+    season_name VARCHAR(50)
+);
+
+CREATE TABLE genres (
+    genre_id INT PRIMARY KEY,
+    genre_name VARCHAR(50)
+);
+
+CREATE TABLE communities (
+    community_id INT PRIMARY KEY,
+    community_name VARCHAR(100),
+    season_id INT,
+    community_image VARCHAR(255),
+    created_date DATETIME,
+    updated_date DATETIME,
+    FOREIGN KEY (season_id) REFERENCES seasons(season_id)
+);
+
+CREATE TABLE favorites (
+    favorite_id INT PRIMARY KEY,
+    community_id INT,
+    user_id INT,
+    favorite_date DATETIME,
+    FOREIGN KEY (community_id) REFERENCES communities(community_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE posts (
+    post_id INT PRIMARY KEY,
+    community_id INT,
+    user_id INT,
+    post_content TEXT,
+    photo VARCHAR(255),
+    posted_date DATETIME,
+    delete_flag BOOLEAN,
+    FOREIGN KEY (community_id) REFERENCES communities(community_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE likes (
+    like_id INT PRIMARY KEY,
+    post_id INT,
+    user_id INT,
+    date DATETIME,
+    FOREIGN KEY (post_id) REFERENCES posts(post_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+CREATE TABLE communities_genres (
+    community_id INT,
+    genre_id INT,
+    FOREIGN KEY (community_id) REFERENCES communities(community_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id),
+    PRIMARY KEY (community_id, genre_id)
+);
+
+CREATE TABLE contacts (
+    contact_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    content TEXT
+);

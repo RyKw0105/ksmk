@@ -5,7 +5,7 @@
 $host = 'localhost';
 $dbname = 'anime';
 $user = 'root';
-$password = '';
+$password = 'ryosuke';
 
 try {
     // PDOインスタンスを作成して接続
