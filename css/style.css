@@ -1,14 +1,14 @@
+/* 全体の設定 */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
 }
 
 /* ------------------- ヘッダー ------------------- */
-/* ヘッダー */
 .header {
     background-color: #0088ff;
     color: white;
-    padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +16,8 @@ body {
     z-index: 1000;
     height: 60px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
 .header .container {
@@ -24,63 +25,82 @@ body {
     align-items: center;
     justify-content: space-between;
     max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
 /* アプリ名 */
-.app-name {
+.app-name a {
     font-size: 22px;
     font-weight: bold;
-    cursor: pointer;
+    color: white;
+    text-decoration: none;
     transition: transform 0.3s ease;
 }
 
-.app-name a {
-    color: inherit; /* 親要素の色を継承 */
-    text-decoration: none; /* 下線を非表示 */
-    transition: color 0.3s ease;
-}
-
 .app-name a:hover {
-    color: #ffffff; /* ホバー時のリンク色変更 */
-    transform: scale(1.1); /* リンクのホバーアニメーション */
+    transform: scale(1.1);
     text-decoration: none;
 }
 
-
-/* 検索バー */
-.search-bar {
+/* 検索バーコンテナ */
+.search_container {
+    position: relative;
     display: flex;
     align-items: center;
-    background-color: white;
+    border: 1px solid #ccc;
     border-radius: 20px;
-    padding: 5px 10px;
-    width: 200px;
-    transition: width 0.3s ease;
-    margin-left: auto;
-    margin-right: 10px;
+    height: 2.5em;
+    width: 280px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+    padding: 0 10px;
 }
 
-.search-bar input[type="text"] {
+.search_container:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: #0088ff;
+}
+
+/* 検索テキストフィールド */
+.search_container input[type="text"] {
+    flex: 1;
     border: none;
     outline: none;
-    width: 100%;
-    padding-right: 5px;
-    text-align: right;
+    font-size: 14px;
+    padding: 5px;
     color: #333;
+    background-color: transparent;
 }
 
-.search-bar .icon {
-    font-size: 16px;
-    color: #333;
-    transition: color 0.3s ease;
+/* 検索ボタン */
+.search_container input[type="submit"] {
+    cursor: pointer;
+    font-family: FontAwesome, Arial, sans-serif;
+    border: none;
+    background: #0088ff;
+    color: #fff;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.search_container input[type="submit"]:hover {
+    background-color: #005fa3;
+    transform: scale(1.1);
+}
+
 
 
 /* ユーザーアイコン */
 .user-icon {
     font-size: 24px;
-    color: white;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -89,32 +109,33 @@ body {
     transform: rotate(20deg) scale(1.2);
 }
 
-/* ナビゲーション */
+/* ------------------- ナビゲーション ------------------- */
 .nav {
     background-color: #f0f0f0;
-    padding: 10px 0;
     position: fixed;
     top: 60px;
     left: 0;
     width: 100%;
     z-index: 999;
     height: 50px;
+    display: flex;
+    align-items: center;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
 }
 
 .nav .container {
     display: flex;
     justify-content: space-around;
     max-width: 1200px;
-    padding: 0 20px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-/* ナビゲーションリンク */
 .nav a {
     color: black;
     font-weight: bold;
     padding: 0 15px;
+    text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
 }
@@ -139,15 +160,13 @@ body {
     width: 100%;
 }
 
-
-
-/* ------------------- フッター -------------------  */
+/* ------------------- フッター ------------------- */
 .footer {
-    position: flex;
     width: 100%;
     padding: 40px 20px;
-    text-align: center;
     background-color: rgb(243, 243, 243);
+    text-align: center;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .footer h1 {
@@ -158,16 +177,17 @@ body {
 
 .description-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    gap: 20px;
 }
 
 .description {
     font-size: 16px;
     line-height: 1.8;
-    margin-right: 20px;
     text-align: left;
+    max-width: 500px;
 }
 
 .footer-community-count {
@@ -180,9 +200,8 @@ body {
     width: 150px;
 }
 
-.footer-community-count p {
-    font-size: 14px;
-    margin: 0;
+.footer-section {
+    margin-top: 20px;
 }
 
 .footer-section h5 {
@@ -196,6 +215,29 @@ body {
     font-size: 14px;
 }
 
+/* ------------------- レスポンシブ対応 ------------------- */
+@media (max-width: 768px) {
+
+    .header .container,
+    .nav .container,
+    .footer .description-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav a {
+        padding: 10px 0;
+    }
+
+    .description-container {
+        flex-direction: column;
+    }
+
+    .footer-community-count {
+        width: auto;
+    }
+}
+
 /* ------------------- コンテンツ -------------------  */
 .content {
     width: 1200px;
@@ -204,7 +246,7 @@ body {
     margin: 0 auto;
 }
 
-a{
+a {
     text-decoration: none;
 }
 

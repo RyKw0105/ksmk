@@ -7,6 +7,7 @@
         <title>ページタイトル</title>
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
@@ -94,19 +95,19 @@
                 <div class="section-title">放送時期別にアニメを探す</div>
                 <div class="content-grid">
                     <div class="content-item">
-                        <p>夏アニメ一覧</p>
+                        <a href="http://localhost/lists.php?season=4"><img src="./image/2025冬.png"></a>
                     </div>
                     <div class="content-item">
-                        <p>秋アニメ一覧</p>
+                        <a href="http://localhost/lists.php?season=3"><img src="./image/2024秋.png"></a>
                     </div>
                     <div class="content-item">
-                        <p>春アニメ一覧</p>
+                        <a href="http://localhost/lists.php?season=2"><img src="./image/2024夏.png"></a>
                     </div>
                     <div class="content-item">
-                        <p>冬アニメ一覧</p>
+                        <a href="http://localhost/lists.php?season=1"><img src="./image/2024春.png"></a>
                     </div>
                 </div>
-                <div class="more-button"><a href="#">もっと見る</a></div>
+                <div class="more-button"><a href="http://localhost/seasons.php">もっと見る</a></div>
             </div>
 
             <!-- 制作会社セクション -->

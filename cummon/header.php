@@ -3,11 +3,12 @@
     <div class="container">
         <div class="app-name">
             <a href="../index.php">アプリ名</a>
-            </div>
-        <div class="search-bar">
-            <input type="text" placeholder="検索">
-            <span class="icon">🔍</span>
         </div>
+        <form action="../search_results.php" method="GET" class="search_container">
+            <input type="text" name="query" placeholder="検索">
+            <input type="submit" value="&#xf002">
+        </form>
+
         <div class="user-icon">👤</div>
     </div>
 </div>

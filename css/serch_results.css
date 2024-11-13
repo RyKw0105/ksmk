@@ -1,15 +1,38 @@
+.content {
+    margin-top: 150px;
+}
+
+.genre-title span {
+    position: relative;
+    padding: 0 .5em;
+    margin: 0 .3em;
+    font-size: 2.5rem;
+}
+
+.genre-title span::before,
+.genre-title span::after {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    content: '';
+}
+
+.genre-title span::before {
+    border-left: solid 3px #4d9bc1;
+    border-top: solid 3px #4d9bc1;
+    top: 0;
+    left: 0;
+}
+
+.genre-title span::after {
+    border-right: solid 3px #4d9bc1;
+    border-bottom: solid 3px #4d9bc1;
+    bottom: 0;
+    right: 0;
+}
+
 .anime-gallery {
     margin-top: 130px;
-}
-
-.title a{
-    color: #000000;
-    background: linear-gradient(transparent 50%, #bde4f7 50%);
-    padding: 0 0.1em;
-}
-
-.title a:hover{
-    text-decoration: none;
 }
 
 .anime-item {
@@ -48,4 +71,5 @@
     font-weight: bold;
     margin: 10px;
     text-align: center;
+    color: black;
 }
