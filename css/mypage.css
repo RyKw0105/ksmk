@@ -1,0 +1,168 @@
+/* ギャラリーの余白 */
+.gallery {
+    margin-top: 140px;
+    margin-bottom: 30px;
+}
+
+/* ユーザー情報カード */
+.card img {
+    border: 2px solid #ccc;
+    padding: 5px;
+    background-color: #f8f9fa;
+    width: 70%;
+    border-radius: 50%;
+    /* 丸いアイコン */
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* アカウント設定ボタン */
+.card button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+
+/* 棚アイテム */
+.shelf-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shelf-item:hover {
+    transform: scale(1.05);
+    /* ホバー時に拡大 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.shelf-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* 画像の比率を維持 */
+    border-radius: 5px;
+}
+
+/* お気に入りがない場合のデザイン */
+.no-favorite-container {
+    border: 2px dashed #007bff;
+    /* 点線の枠 */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    /* 背景色を薄いグレーに */
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 柔らかな影を追加 */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.no-favorite-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    /* ブルーで強調 */
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* 棚タイトル */
+.shelf-item p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* お気に入り棚 */
+.card-header {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+}
+
+/* グリッドの間隔 */
+.row.g-3 {
+    margin: 0 -10px;
+}
+
+.col-6,
+.col-md-4 {
+    padding: 10px;
+}
+
+/* ページネーションのデザイン */
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .page-item .page-link {
+    color: #007bff;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}

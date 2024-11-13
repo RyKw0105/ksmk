@@ -9,7 +9,7 @@
             <input type="submit" value="&#xf002">
         </form>
 
-        <div class="user-icon">👤</div>
+        <div class="user-icon"><a href="../mypage.php">👤</a></div>
     </div>
 </div>
 
