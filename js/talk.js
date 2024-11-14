@@ -43,6 +43,52 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// お気に入り機能
+$(".goodBtn").on("click", function () {
+    $(this).toggleClass("active");
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const goodBtn = document.querySelector('.goodBtn');
+
+    if (goodBtn) {
+        goodBtn.addEventListener('click', async () => {
+            const communityId = goodBtn.getAttribute('data-community-id');
+            const userId = goodBtn.getAttribute('data-user-id');
+
+            try {
+                const response = await fetch('favorites_handler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        community_id: communityId,
+                        user_id: userId,
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // ボタンの状態を切り替え
+                    goodBtn.classList.toggle('active');
+                    // カウントの更新
+                    const likeCount = goodBtn.querySelector('.like-count');
+                    likeCount.textContent = result.favorite_count;
+                } else {
+                    console.error('お気に入り処理に失敗しました:', result.message);
+                }
+            } catch (error) {
+                console.error('エラー:', error);
+            }
+            window.location.reload();
+        });
+    }
+});
+
+
+
 // 画像プレビュー機能
 function previewImage(event) {
     const file = event.target.files[0];

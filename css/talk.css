@@ -1,3 +1,7 @@
+.content {
+    margin-top: 120px;
+}
+
 /* チャットエリア */
 .chat-container {
     display: flex;
@@ -5,7 +9,7 @@
     max-width: 100%;
     width: 100%;
     max-width: 1200px;
-    margin: 130px auto 20px;
+    margin: 0px auto 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -20,6 +24,477 @@
     font-size: 18px;
     font-weight: bold;
     text-align: center;
+}
+
+/* いいね */
+div,
+span {
+    box-sizing: border-box;
+}
+
+.fa-heart {
+    font-size: 30px;
+    color: #ccc;
+}
+
+.donut {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -3;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 5px solid rgb(253, 192, 255);
+        border-radius: 50%;
+    }
+}
+
+.bubble {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+
+    span {
+        width: 5px;
+        height: 5px;
+        background: #cc0909;
+        border-radius: 50%;
+        position: absolute;
+        opacity: 0;
+
+        &:nth-of-type(1) {
+            top: 30%;
+            right: 40%;
+        }
+
+        &:nth-of-type(2) {
+            top: 40%;
+            right: 30%;
+        }
+
+        &:nth-of-type(3) {
+            right: 30%;
+            bottom: 40%;
+        }
+
+        &:nth-of-type(4) {
+            right: 40%;
+            bottom: 30%;
+        }
+
+        &:nth-of-type(5) {
+            bottom: 30%;
+            left: 40%;
+        }
+
+        &:nth-of-type(6) {
+            bottom: 40%;
+            left: 30%;
+        }
+
+        &:nth-of-type(7) {
+            left: 30%;
+            top: 40%;
+        }
+
+        &:nth-of-type(8) {
+            left: 40%;
+            top: 30%;
+        }
+    }
+}
+
+.goodBtn {
+    all: unset;
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 auto;
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &.active {
+        .fa-heart {
+            transform-origin: center center;
+            animation: heart 1s ease-in-out forwards;
+        }
+
+        .donut {
+            &::after {
+                transform-origin: center center;
+                animation: donut 1s ease-in-out forwards;
+            }
+        }
+
+        .bubble {
+            span {
+                &:nth-of-type(1) {
+                    animation: bubble01 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(2) {
+                    animation: bubble02 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(3) {
+                    animation: bubble03 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(4) {
+                    animation: bubble04 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(5) {
+                    animation: bubble05 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(6) {
+                    animation: bubble06 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(7) {
+                    animation: bubble07 1s ease-in-out forwards;
+                }
+
+                &:nth-of-type(8) {
+                    animation: bubble08 1s ease-in-out forwards;
+                }
+            }
+        }
+    }
+}
+
+.fa-heart.favorited {
+    color: red; /* お気に入り状態の赤色 */
+    transition: color 0.3s ease;
+}
+
+.goodBtn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.like-count {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+@keyframes heart {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    40% {
+        transform: scale(1, 1);
+    }
+
+    60% {
+        transform: scale(0, 0);
+    }
+
+    75% {
+        transform: scale(0, 0);
+    }
+
+    100% {
+        color: red;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes donut {
+    0% {
+        border-width: 5px;
+        transform: scale(1, 1);
+    }
+
+    50% {
+        border-width: 50px;
+        transform: scale(1.5, 1.5);
+    }
+
+    75% {
+        border-width: 5px;
+        transform: scale(1, 1);
+    }
+
+    100% {
+        border-width: 5px;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes bubble01 {
+    0% {
+        top: 30%;
+        right: 40%;
+    }
+
+    50% {
+        top: 30%;
+        right: 40%;
+        opacity: 0;
+    }
+
+    75% {
+        top: -10%;
+        right: 0%;
+        opacity: 1;
+    }
+
+    85% {
+        top: -20%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble02 {
+    0% {
+        top: 40%;
+        right: 30%;
+    }
+
+    50% {
+        top: 40%;
+        right: 30%;
+        opacity: 0;
+    }
+
+    75% {
+        top: 0%;
+        right: -10%;
+        opacity: 1;
+    }
+
+    85% {
+        top: -5%;
+        right: -25%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble03 {
+    0% {
+        right: 30%;
+        bottom: 40%;
+    }
+
+    50% {
+        right: 30%;
+        bottom: 40%;
+        opacity: 0;
+    }
+
+    75% {
+        right: -10%;
+        bottom: 0%;
+        opacity: 1;
+    }
+
+    85% {
+        right: -20%;
+        bottom: 10%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble04 {
+    0% {
+        right: 40%;
+        bottom: 30%;
+    }
+
+    50% {
+        right: 40%;
+        bottom: 30%;
+        opacity: 0;
+    }
+
+    75% {
+        right: 10%;
+        bottom: -30%;
+        opacity: 1;
+    }
+
+    85% {
+        bottom: 0%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble05 {
+    0% {
+        bottom: 30%;
+        left: 40%;
+    }
+
+    50% {
+        bottom: 30%;
+        left: 40%;
+        opacity: 0;
+    }
+
+    75% {
+        bottom: -10%;
+        left: 0%;
+        opacity: 1;
+    }
+
+    85% {
+        bottom: 0%;
+        left: 15%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble06 {
+    0% {
+        bottom: 40%;
+        left: 30%;
+    }
+
+    50% {
+        bottom: 40%;
+        left: 30%;
+        opacity: 0;
+    }
+
+    75% {
+        bottom: 0%;
+        left: -10%;
+        opacity: 1;
+    }
+
+    85% {
+        bottom: 10%;
+        left: -20%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble07 {
+    0% {
+        left: 30%;
+        top: 40%;
+    }
+
+    50% {
+        left: 30%;
+        top: 40%;
+        opacity: 0;
+    }
+
+    75% {
+        left: -20%;
+        top: 5%;
+        opacity: 1;
+    }
+
+    85% {
+        top: -10%;
+        left: -25%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bubble08 {
+    0% {
+        left: 40%;
+        top: 30%;
+    }
+
+    50% {
+        left: 40%;
+        top: 30%;
+        opacity: 0;
+    }
+
+    75% {
+        left: 0%;
+        top: -10%;
+        opacity: 1;
+    }
+
+    85% {
+        top: -25%;
+        left: 15%;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .chat-body {

@@ -44,6 +44,7 @@
     $favorite_query = $pdo->prepare("
         SELECT  f.favorite_id,
                 f.favorite_date, 
+                c.community_id,
                 c.community_name,
                 c.community_image
         FROM 
@@ -94,13 +95,16 @@
                             <?php foreach ($favorite as $results): ?>
                                 <div class="col-6 col-md-4">
                                     <div class="shelf-item">
-                                        <img src="<?= htmlspecialchars($results['community_image']); ?>" alt="作品1">
-                                        <p><?= htmlspecialchars($results['community_name']); ?></p>
+                                        <a href="./talk.php?community_id=<?= htmlspecialchars($results['community_id']); ?>">
+                                            <img src="<?= htmlspecialchars($results['community_image']); ?>" alt="作品1">
+                                            <p><?= htmlspecialchars($results['community_name']); ?></p>
+                                        </a>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
                         </div>
 
+                        <!-- ページネーション -->
                         <nav aria-label="Page navigation">
                             <ul class="pagination justify-content-center">
                                 <?php
