@@ -14,6 +14,7 @@
 <body>
 
     <?php
+    include './cummon/auth_check.php';
     include './cummon/header.php';
     require './cummon/config.php';
 
@@ -26,7 +27,7 @@
 
     // ユーザー情報の取得
     $userQuery = $pdo->prepare("SELECT user_name, profile_photo FROM users WHERE user_id = :user_id");
-    $userQuery->execute(['user_id' => 1]);
+    $userQuery->execute(['user_id' => $user_id]);
     $userResult = $userQuery->fetch(PDO::FETCH_ASSOC);
 
     // データが取得できなかった場合のエラーハンドリング
@@ -36,7 +37,7 @@
 
     // 総データ数を取得
     $totalQuery = $pdo->prepare("SELECT COUNT(*) FROM favorites WHERE user_id = :user_id");
-    $totalQuery->execute(['user_id' => 1]);
+    $totalQuery->execute(['user_id' => $user_id]);
     $totalRecords = $totalQuery->fetchColumn();
     $totalPages = ceil($totalRecords / $limit);
 
@@ -56,7 +57,7 @@
         LIMIT :limit
         OFFSET :offset
     ");
-    $favorite_query->bindValue(':user_id', 1, PDO::PARAM_INT);
+    $favorite_query->bindValue(':user_id', $user_id, PDO::PARAM_INT);
     $favorite_query->bindValue(':limit', $limit, PDO::PARAM_INT);
     $favorite_query->bindValue(':offset', $offset, PDO::PARAM_INT);
     $favorite_query->execute();

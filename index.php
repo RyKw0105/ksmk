@@ -13,7 +13,10 @@
 
     <body>
 
-        <?php include './cummon/header.php'; ?>
+        <?php
+        session_start();
+        include './cummon/header.php';
+        ?>
 
 
         <div class="content">
@@ -51,9 +54,12 @@
                 <p>自分に合う作品を知りたい！<br>
                     この2000年代の人気のアニメを知りたい！<br>
                     そんなことならAIチャットにお任せ！</p>
-                <div class="button">
-                    <a href="#">AIと話す</a>
-                </div>
+                <a href="#" class="btn btn-3d-flip">
+                    <span class="btn-3d-flip-box">
+                        <span class="btn-3d-flip-box-face btn-3d-flip-box-face--front">AIと話す<i class="fas fa-angle-right fa-position-right"></i></span>
+                        <span class="btn-3d-flip-box-face btn-3d-flip-box-face--back">AIチャット<i class="fas fa-angle-right fa-position-right"></i></span>
+                    </span>
+                </a>
             </div>
             <div class="title">
                 <h2><span>～好きなコミュニティで語ろう～</span></h2>
@@ -87,7 +93,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="more-button"><a href="/lists.php?season=3">もっと見る</a></div>
+                <div class="more-button"><a href="/seasons_detail.php?season=3">もっと見る</a></div>
             </div>
 
             <!-- 放送時期別のアニメ -->

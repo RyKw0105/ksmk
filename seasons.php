@@ -14,6 +14,7 @@
 <body>
 
     <?php
+    session_start();
     include './cummon/header.php';
     require './cummon/config.php';
 
@@ -43,7 +44,10 @@
 
     <div class="content anime-gallery container">
         <?php foreach ($results_season as $seasons): ?>
-            <h2 class="title"><a href="./lists.php?season=<?= htmlspecialchars($seasons['season_id']) ?>"><?= htmlspecialchars($seasons['season_name']); ?></a></h2>
+            <h2 class="title">
+                <a href="./seasons_detail.php?season=<?= htmlspecialchars($seasons['season_id']) ?>"><?= htmlspecialchars($seasons['season_name']); ?></a>
+            </h2>
+            
             <div class="row">
                 <?php for ($i = 1; $i <= 4; $i++): ?>
                     <?php
@@ -70,7 +74,7 @@
             </div>
         <?php endforeach; ?>
     </div>
-    
+
     <?php include './cummon/footer.php'; ?>
 
 </body>

@@ -15,11 +15,16 @@
 <body>
 
     <?php
+    include './cummon/auth_check.php';
     include './cummon/header.php';
     require './cummon/config.php';
 
+    // キャッシュ無効化
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+
     $community_id = isset($_GET['community_id']) ? (int)$_GET['community_id'] : 1;
-    $user_id = 1;
 
     //投稿の表示
     $postQuery = $pdo->prepare("
@@ -44,18 +49,14 @@
     $communityResult = $communityQuery->fetch(PDO::FETCH_ASSOC);
     $communityName = $communityResult['community_name'] ?? 'コミュニティ名が未設定';
 
-
     //投稿の追加、削除
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // 投稿の削除処理
         if (isset($_POST['delete']) && isset($_POST['delete_post_id'])) {
             $delete_post_id = (int)$_POST['delete_post_id'];
-
-            // delete_flag を 1 に更新
             $deleteQuery = $pdo->prepare("UPDATE posts SET delete_flag = 1 WHERE post_id = :post_id");
             $deleteQuery->execute([':post_id' => $delete_post_id]);
 
-            // ページをリロードして削除後の状態を表示
             header("Location: {$_SERVER['REQUEST_URI']}");
             exit;
         }
@@ -85,8 +86,7 @@
                 ':photo' => $photo,
             ]);
 
-            // ページをリロードして新しい投稿を表示
-            header("Location: {$_SERVER['REQUEST_   URI']}");
+            header("Location: {$_SERVER['REQUEST_URI']}");
             exit;
         }
     }

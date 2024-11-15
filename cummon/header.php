@@ -15,9 +15,9 @@
 
 <div class="nav">
     <div class="container">
-        <a href="../lists.php?season=3">今季のアニメ</a>
+        <a href="../seasons_detail.php?season=3">今季のアニメ</a>
         <a href="../seasons.php">放送時期</a>
-        <a href="#">ジャンル</a>
+        <a href="../genre.php">ジャンル</a>
         <a href="#">制作会社</a>
         <a href="#">音楽</a>
         <a href="#">声優</a>

@@ -1,0 +1,214 @@
+/* Reset */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* ヘッダー */
+.header {
+    background-color: #0088ff;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 100px; /* 高さを大きくしてアプリ名を強調 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* アプリ名を中央寄せ */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app-name a {
+    font-size: 36px; /* フォントサイズを大きく */
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.app-name a:hover {
+    transform: scale(1.1); /* ホバー時のアニメーション */
+    color: #e0e0e0; /* ホバー時に少し色を明るく */
+    text-decoration: none;
+}
+
+/* エラーメッセージ */
+.alert {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.alert p {
+    margin: 0;
+}
+
+/* Content Box */
+.content {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.register-box h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.login-box h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 45px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #0056b3, #003f7f);
+    transform: translateY(-2px);
+}
+
+.login-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s;
+    width: 100%;
+}
+
+.register-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s;
+    width: 100%;
+}
+
+.login-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.register-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .register-box h2 {
+        font-size: 20px;
+    }
+
+    .login-box h2 {
+        font-size: 20px;
+    }
+
+    .form-group input {
+        height: 40px;
+    }
+
+    .btn-primary {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .login-link {
+        font-size: 13px;
+    }
+
+    .register-link {
+        font-size: 13px;
+    }
+}

@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("talk.js is loaded");
 
     // chat-bodyのスクロールを一番下に移動する関数
     function scrollToBottom() {
@@ -19,16 +18,30 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(chatBody, { childList: true });
     }
 
-    // 削除ボタンに確認ダイアログを追加
-    const deleteButtons = document.querySelectorAll(".delete-button");
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", function (event) {
-            const confirmed = confirm("本当に削除しますか？");
-            if (!confirmed) {
-                event.preventDefault();
+    // 削除ボタンに確認ダイアログを追加（重複登録防止）
+    function addDeleteButtonListeners() {
+        const deleteButtons = document.querySelectorAll(".delete-button");
+        deleteButtons.forEach(button => {
+            if (!button.dataset.listenerAdded) {
+                button.addEventListener("click", function (event) {
+                    const confirmed = confirm("本当に削除しますか？");
+                    if (!confirmed) {
+                        event.preventDefault();
+                    }
+                });
+                button.dataset.listenerAdded = "true"; // リスナー登録済みを記録
             }
         });
-    });
+    }
+
+    // 初期ロード時にリスナーを追加
+    addDeleteButtonListeners();
+
+    // chat-body内で要素が追加された場合もリスナーを追加
+    if (chatBody) {
+        const observer = new MutationObserver(addDeleteButtonListeners);
+        observer.observe(chatBody, { childList: true, subtree: true });
+    }
 
     // Enterキーでの送信防止（Shift+Enterで改行）
     const textarea = document.querySelector("textarea[name='post_content']");
@@ -42,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 // お気に入り機能
 $(".goodBtn").on("click", function () {

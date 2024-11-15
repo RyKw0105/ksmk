@@ -16,7 +16,15 @@ CREATE TABLE seasons (
 
 CREATE TABLE genres (
     genre_id INT PRIMARY KEY,
-    genre_name VARCHAR(50)
+    genre_name VARCHAR(50),
+    genre_recommend1 INT,
+    genre_recommend2 INT,
+    genre_recommend3 INT,
+    genre_recommend4 INT,
+    FOREIGN KEY (genre_recommend1) REFERENCES communities(community_id),
+    FOREIGN KEY (genre_recommend2) REFERENCES communities(community_id),
+    FOREIGN KEY (genre_recommend3) REFERENCES communities(community_id),
+    FOREIGN KEY (genre_recommend4) REFERENCES communities(community_id)
 );
 
 CREATE TABLE communities (
@@ -66,6 +74,7 @@ CREATE TABLE communities_genres (
     FOREIGN KEY (genre_id) REFERENCES genres(genre_id),
     PRIMARY KEY (community_id, genre_id)
 );
+
 
 CREATE TABLE contacts (
     contact_id INT PRIMARY KEY,
